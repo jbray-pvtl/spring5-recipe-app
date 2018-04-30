@@ -3,6 +3,7 @@ package guru.springframework.domain;
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 public class Recipe {
 
     @Id
