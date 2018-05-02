@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipes</title>
@@ -9,11 +9,26 @@
 <body>
 <header>
     <div class="container">
-        <h1>Recipes!</h1>
+        <h1>My Recipes!</h1>
     </div>
 </header>
 <div class="container">
     <!-- main content goes here -->
+    <div class="panel-heading">
+        <h5 class="panel-title">Recipe List</h5>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-inverse">
+                <tr>
+                    <td>ID</td>
+                    <td>Description</td>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
 <footer>
     <div class="container">
