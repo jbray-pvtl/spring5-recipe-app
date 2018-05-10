@@ -18,9 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
@@ -63,6 +61,16 @@ public class RecipeServiceImpTest {
         List<Recipe> recipes = recipeService.getRecipes();
         int expected = 1;
         assertEquals(expected, recipes.size());
+    }
+
+    @Test
+    public void shouldDeleteRecipeByIdTest() {
+        //Given
+        Long idToDelete = Long.valueOf(2L);
+        //When
+        recipeService.deleteById(idToDelete);
+        //Then
+        verify(mockRepository, times(1)).deleteById(anyLong());
     }
 
 }

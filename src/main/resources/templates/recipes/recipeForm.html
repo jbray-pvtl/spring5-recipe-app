@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.css}">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.js}"></script>
+</head>
+<body>
+<div class="container">
+    <!-- /*@thymesVar id="recipe" type="guru.springframework.commands.RecipeCommand" */ -->
+    <form class="form-horizontal" th:object="${recipe}" th:action="@{/recipe/}" th:method="post">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend>Form Name</legend>
+            <input type="hidden" th:field="*{id}" />
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="description">Recipe Description</label>
+                <div class="col-md-4">
+                    <input id="description" name="description" type="text" placeholder="description here" class="form-control input-md" th:text="${recipe.description}">
+                    <span class="help-block">enter recipe description</span>
+                </div>
+            </div>
+
+            <!-- Multiple Checkboxes (inline) -->
+            <div class="form-group">
+                <label class="col-md-4 control-label">Categories</label>
+                <div class="col-md-4">
+                    <label class="checkbox-inline" for="categories-0">
+                        <input type="checkbox" name="categories" id="categories-0" value="1">
+                        cat 1
+                    </label>
+                    <label class="checkbox-inline" for="categories-1">
+                        <input type="checkbox" name="categories" id="categories-1" value="2">
+                        cat 2
+                    </label>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="prepTime">Prep Time</label>
+                <div class="col-md-4">
+                    <input id="prepTime" name="prepTime" type="text" placeholder="preparation time" class="form-control input-md" th:text="${recipe.prepTime}">
+                    <span class="help-block">enter prep time here</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="cookTime">Cook Time</label>
+                <div class="col-md-4">
+                    <input id="cookTime" name="cookTime" type="text" placeholder="cooking time" class="form-control input-md" th:text="${recipe.cookTime}">
+                    <span class="help-block">enter cook time here</span>
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="difficulty">Difficulty</label>
+                <div class="col-md-4">
+                    <select id="difficulty" name="difficulty" class="form-control" th:selected="${recipe.difficulty}">
+                        <option value="EASY">Easy</option>
+                        <option value="MODERATE">Medium</option>
+                        <option value="KIND_OF_HARD">Kind of hard</option>
+                        <option value="HARD">Hard</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="servings">Servings</label>
+                <div class="col-md-4">
+                    <input id="servings" name="servings" type="text" placeholder="servings" class="form-control input-md">
+                    <span class="help-block">enter servings here</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="source">Source</label>
+                <div class="col-md-4">
+                    <input id="source" name="source" type="text" placeholder="source" class="form-control input-md">
+                    <span class="help-block">enter source here</span>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="url">URL</label>
+                <div class="col-md-4">
+                    <input id="url" name="url" type="text" placeholder="enter URL" class="form-control input-md">
+                    <span class="help-block">enter URL here</span>
+                </div>
+            </div>
+
+            <!-- Textarea -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="directions">Directions</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="directions" name="directions" th:field="*{directions}">directions...</textarea>
+                </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+                <div class="col-md-8">
+                    <button id="saveBtn" name="saveBtn" class="btn btn-success" th:type="submit">Save</button>
+                    <button id="cancelBtn" name="cancelBtn" class="btn btn-danger">Cancel</button>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" th:src="@{/webjars/popper.js/1.14.1/popper.js}"></script>
+</body>
+</html>
