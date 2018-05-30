@@ -1,7 +1,9 @@
 package guru.springframework.services;
 
+import guru.springframework.commands.IngredientCommand;
 import guru.springframework.commands.RecipeCommand;
 import guru.springframework.converters.RecipeCommandToRecipe;
+import guru.springframework.domain.Ingredient;
 import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -56,5 +58,17 @@ public class RecipeServiceImp implements RecipeService {
     public void deleteById(Long idToDelete) {
         log.debug("Deleting recipe " + idToDelete);
         recipeRepository.deleteById(idToDelete);
+    }
+
+    @Override
+    public List<IngredientCommand> getIngredients() {
+        //TODO not implemented yet
+        return null;
+    }
+
+    @Override
+    public boolean deleteIngredientById(long id) {
+        //
+        return false;
     }
 }

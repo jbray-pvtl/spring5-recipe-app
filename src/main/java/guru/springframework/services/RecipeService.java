@@ -1,6 +1,8 @@
 package guru.springframework.services;
 
+import guru.springframework.commands.IngredientCommand;
 import guru.springframework.commands.RecipeCommand;
+import guru.springframework.domain.Ingredient;
 import guru.springframework.domain.Recipe;
 
 import java.util.List;
@@ -14,5 +16,9 @@ public interface RecipeService {
 
     public RecipeCommand saveRecipeCommand(RecipeCommand command);
 
-    void deleteById(Long idToDelete);
+    public void deleteById(Long idToDelete);
+
+    List<IngredientCommand> getIngredients();
+
+    public boolean deleteIngredientById(long id);
 }

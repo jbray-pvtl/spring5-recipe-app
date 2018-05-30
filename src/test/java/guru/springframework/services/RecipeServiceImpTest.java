@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,8 @@ public class RecipeServiceImpTest {
     RecipeRepository mockRepository;
 
     RecipeService recipeService;
+
+    MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
@@ -71,6 +74,17 @@ public class RecipeServiceImpTest {
         recipeService.deleteById(idToDelete);
         //Then
         verify(mockRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void shouldDeleteIngredientByIdTest() throws Exception {
+        //Given
+        Long ingredientIdToDelete = Long.valueOf(2L);
+        //When
+        recipeService.deleteIngredientById(ingredientIdToDelete);
+        //Then
+        //verify(mockRepository, times(1)).deleteIngredientById(ingredientIdToDelete);
+        fail("not implemented yet!");
     }
 
 }

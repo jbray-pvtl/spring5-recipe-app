@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Recipe Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.1.0/css/bootstrap.css}">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.js}"></script>
 </head>
@@ -67,6 +67,9 @@
                         <option value="MODERATE">Medium</option>
                         <option value="KIND_OF_HARD">Kind of hard</option>
                         <option value="HARD">Hard</option>
+                        <option th:each="difficultyValue : ${T(guru.springframework.domain.Difficulty).value()}"
+                        th:value="difficultyValue.name()"
+                        th:text="difficultyValue.name()">val</option>
                     </select>
                 </div>
             </div>
